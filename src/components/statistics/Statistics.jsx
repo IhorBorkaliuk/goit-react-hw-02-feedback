@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
-import { WrapStat, TextStat } from './StatisticsStyled';
+import { WrapStat, StatItem } from './StatisticsStyled';
+
 
 export const Statistics = ({
-  good,
-  neutral,
-  bad,
+  options,
   total,
   positivePercentage,
 }) => {
   return (
     <WrapStat>
-      <TextStat>Good: {good}</TextStat>
-      <TextStat>Neutral: {neutral}</TextStat>
-      <TextStat>Bad: {bad}</TextStat>
-      <TextStat>Total: {total}</TextStat>
-      <TextStat>Positive feedback: {positivePercentage}%</TextStat>
+      {Object.keys(options).map(option => (
+        <StatItem key={option}>
+          {option}: {options[option]}
+        </StatItem>
+      ))}
+      <p>
+        Total: {total} Positive feedback: {positivePercentage}%
+      </p>
     </WrapStat>
   );
 };

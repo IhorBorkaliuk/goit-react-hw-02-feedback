@@ -36,20 +36,25 @@ export class App extends Component {
   };
 
   render() {
+    const options = { ...this.state };
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions HandleIncrement={this.HandleIncrement} />
-          </Section>
+          <FeedbackOptions
+            options={options}
+            HandleIncrement={this.HandleIncrement}
+          />
+        </Section>
         <Section title="Statistics">
-          {this.countTotalFeedback() === 0 ? (<Notification message="There is no feedback" />) : (
-            <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+          {this.countTotalFeedback() === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+              <Statistics
+              options={options}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
-            />)}
+            />
+          )}
         </Section>
       </>
     );

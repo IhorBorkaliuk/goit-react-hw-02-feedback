@@ -1,11 +1,13 @@
 import { Button, FeedbackWrapper } from './FeedbackOptionsStyled';
 
-export const FeedbackOptions = ({ HandleIncrement }) => {
+export const FeedbackOptions = ({ options, HandleIncrement }) => {
   return (
     <FeedbackWrapper>
-      <Button onClick={() => HandleIncrement('good')}>Good</Button>
-      <Button onClick={() => HandleIncrement('neutral')}>Neutral</Button>
-      <Button onClick={() => HandleIncrement('bad')}>Bad</Button>
+      {options.map(option => (
+        <li key={option}>
+          <Button onClick={() => HandleIncrement(option)}>{option}</Button>
+        </li>
+      ))}
     </FeedbackWrapper>
   );
 };

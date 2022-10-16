@@ -1,10 +1,10 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const FeedbackWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-`
+  display: flex;
+  justify-content: center;
+  list-style: none;
+`;
 
 export const Button = styled.button`
   margin-left: 20px;
