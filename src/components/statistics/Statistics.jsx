@@ -11,12 +11,13 @@ export const Statistics = ({
     <WrapStat>
       {Object.keys(options).map(option => (
         <StatItem key={option}>
-          {option}: {options[option]}
+          <p>
+            {option}: {options[option]}
+          </p>
         </StatItem>
       ))}
-      <p>
-        Total: {total} Positive feedback: {positivePercentage}%
-      </p>
+      <p>Total: {total} </p>
+      <p>Positive feedback: {positivePercentage}%</p>
     </WrapStat>
   );
 };
